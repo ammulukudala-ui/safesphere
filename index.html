@@ -1,16 +1,57 @@
-<script>
-function signup() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SafeSphere</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  if (email === "" || password === "") {
-    alert("Fill all fields");
-  } else {
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    alert("Signup Successful!");
-    window.location.href = "index.html";
-  }
-}
-</script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 10px;
+    }
+
+    #map {
+      height: 80vh;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>SafeSphere - Women Safety Map</h1>
+
+  <button onclick="reportIncident()">Report Danger</button>
+
+  <div id="map"></div>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Firebase -->
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
